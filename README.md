@@ -11,4 +11,4 @@ The Fully Connected Neural Network outputs Number of Patches * D ; where D is th
 So, basically what Patch Embedding does is
     - seperates the images into patches
     - add positional embedding
-    - add CLS token at the begining
+    - add CLS token at the begining (for SUmmary of the Task)
