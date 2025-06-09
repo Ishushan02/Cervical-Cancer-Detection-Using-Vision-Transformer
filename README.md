@@ -1,50 +1,29 @@
 # Vision-Transformer
-A simple Vision Transformer (VIT) implementation for image classification tasks. This repo showcases the ViT architecture, using self-attention to process image patches. It includes model training, evaluation, and performance analysis, aimed at understanding ViT’s application in computer vision.
+A simple Vision Transformer (VIT) implementation for image classification tasks. This repo showcases the ViT architecture, using attention to process image patches. It includes model training, evaluation, and performance analysis, aimed at understanding ViT’s application in computer vision.
 
 # Dataset
-Sure! Here's a simple explanation of each term and what it means for **cervical cancer detection**:
 
----
+#### 1. **im\_Metaplastic** 
+    : These are changing cells that are **not cancer**, but appear during normal repair or transformation, They're important because cancer often starts in these areas.
+    : Not dangerous by themselves, but need to be watched.
 
-### 1. **im\_Metaplastic**
+#### 2. **im\_Dyskeratotic**
 
-* These are **changing cells** that are **not cancer**, but appear during normal repair or transformation.
-* They're important because cancer often starts in these areas.
-* **Not dangerous by themselves**, but need to be watched.
-
----
-
-### 2. **im\_Dyskeratotic**
-
-* These are **abnormal-looking cells** that may be a **sign of pre-cancer or cancer**.
-* They show **early signs of damage**.
+    : These are **abnormal-looking cells that may be a sign of pre-cancer or cancer, they show early signs of damage.
 * These are **warning signs** and should be looked at carefully.
 
----
+#### 3. **im\_Superficial-Intermediate**
 
-### 3. **im\_Superficial-Intermediate**
+    : These are normal, healthy cells** from the outer layer of the cervix, Their presence usually means everything is fine.
 
-* These are **normal, healthy cells** from the outer layer of the cervix.
-* Their presence usually means **everything is fine**.
+#### 4. **im\_Parabasal**
 
----
-
-### 4. **im\_Parabasal**
-
-* These are **immature cells** that are deeper in the tissue.
-* If you see a lot of them, it could mean the tissue is **healing** or there's a **hormonal issue**, especially after menopause.
-* **Not cancer**, but can show other changes.
-
----
+    : These are **immature cells** that are deeper in the tissue, If you see a lot of them, it could mean the tissue is healing or there's a hormonal issue, especially after menopause.
+    : Not cancer, but can show other changes.
 
 ### 5. **im\_Koilocytotic**
 
-* These cells show **HPV infection**, which is the virus that can lead to cervical cancer.
-* These are **early warning cells** — not cancer, but they tell doctors to keep an eye out.
-
----
-
-### In short:
+    : These cells show **HPV infection**, which is the virus that can lead to cervical cancer, These are early warning cells — not cancer, but they tell doctors to keep an eye out.
 
 | Cell Type                | What it Means             | Is it Dangerous?         |
 | ------------------------ | ------------------------- | ------------------------ |
@@ -53,9 +32,6 @@ Sure! Here's a simple explanation of each term and what it means for **cervical 
 | Superficial-Intermediate | Normal healthy cells      | No                       |
 | Parabasal                | Immature, often harmless  | Sometimes                |
 | Koilocytotic             | HPV-infected cells        | Can lead to cancer later |
-
-Let me know if you want this in a chart or image format!
-
 
 
 ## Patch Embedding
