@@ -2,7 +2,7 @@
 A simple Vision Transformer (VIT) implementation for image classification tasks. This repo showcases the ViT architecture, using attention to process image patches. It includes model training, evaluation, and performance analysis, aimed at understanding ViT’s application in computer vision.
 
 # Dataset
-
+- Execute dataset.py to download the Data 
 #### 1. **im\_Metaplastic** 
     : These are changing cells that are **not cancer**, but appear during normal repair or transformation, They're important because cancer often starts in these areas.
     : Not dangerous by themselves, but need to be watched.
