@@ -45,62 +45,16 @@ So, basically what Patch Embedding does is
     - seperates the images into patches
     - add positional embedding
     - add CLS token at the begining (for SUmmary of the Task)
+    - The output is a sequence of embeddings:
 
-
-
-#  Vision Transformer for Cervical Cancer Detection
-
-This project presents a **simple yet powerful implementation of Vision Transformers (ViT)** for image classification in the medical domain — specifically for detecting and classifying various cervical cell types. By leveraging the power of self-attention, this model is capable of learning meaningful patterns from cell images for early and accurate diagnosis.
-
----
-
-## 📁 Dataset
-
-To download and prepare the dataset, simply run:
-
-```bash
-python dataset.py
-````
-
-The dataset includes five different classes of cervical cells, each with clinical significance:
-
-| Cell Type                    | Description                                              | Is it Dangerous?         |
-| ---------------------------- | -------------------------------------------------------- | ------------------------ |
-| **Metaplastic**              | Changing cells; not cancerous but can be precursors.     | Usually not              |
-| **Dyskeratotic**             | Abnormal cells; may be signs of pre-cancer or cancer.    | Yes, watch closely       |
-| **Superficial-Intermediate** | Normal, healthy cells from cervix surface.               | No                       |
-| **Parabasal**                | Immature cells, seen during healing or hormonal changes. | Sometimes                |
-| **Koilocytotic**             | HPV-infected cells; early indicators of possible cancer. | Can lead to cancer later |
-
-Each image corresponds to one of the above categories and represents a specific stage or condition relevant to cervical health.
+    ```
+    [CLS, Patch1, Patch2, ..., PatchN]
+    ```
+<!-- which is then passed through Transformer encoders. -->
 
 ---
 
-## 🧩 Patch Embedding
-
-The Vision Transformer processes images in **patches**, not pixels. Here's how it works:
-
-1. **Patch Creation**: Images are divided into fixed-size blocks (patches), e.g. 16x16.
-2. **Flatten & Stack**: Each patch’s RGB values are flattened into a 1D vector:
-
-   ```
-   [Pixel1r, Pixel1g, Pixel1b, Pixel2r, Pixel2g, Pixel2b, ...]
-   ```
-3. **Linear Projection**: A fully connected layer projects each patch into a D-dimensional embedding space.
-4. **Positional Embedding**: Positional information is added using sinusoidal or learned embeddings.
-5. **CLS Token**: A `[CLS]` token is prepended to represent the summary for classification.
-
-The output is a sequence of embeddings:
-
-```
-[CLS, Patch1, Patch2, ..., PatchN]
-```
-
-which is then passed through Transformer encoders.
-
----
-
-## 🏗️ Model Architecture
+## Model Architecture
 
 The core components of our ViT model include:
 
@@ -109,3 +63,5 @@ The core components of our ViT model include:
 * **Multi-head Self-Attention**
 * **Transformer Encoder Blocks**
 * **Classification Head**
+
+
