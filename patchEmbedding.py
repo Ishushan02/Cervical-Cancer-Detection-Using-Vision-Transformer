@@ -21,10 +21,15 @@ class PatchEmbedding(nn.Module):
     
     def forward(self, x):
         batch, channels, height, width = x.shape
+        # x = self.projection(x).contiguous()  # <--- ✅ make sure this is contiguous
+        # x = x.flatten(2).transpose(1, 2).contiguous()  # <--- ✅ ensure this too is contiguous
 
         x = self.projection(x)
-        print(x.shape)
-        x = x.flatten(2).transpose(1, 2) 
+        # print(x.shape)
+        # x = x.contiguous()
+        x = x.flatten(2).transpose(1, 2)
+        # x = x.flatten(2).contiguous().transpose(1, 2)
+
         # torch.Size([1, 8, 10, 10]) -> torch.Size([1, 8, 100]) -> torch.Size([1, 100, 8])
         # print(x.shape)
         cls_tokens = self.cls_token.expand(batch, -1, -1) 
@@ -40,4 +45,4 @@ class PatchEmbedding(nn.Module):
 # test = torch.randn(1, 3, 128, 128)  
 # PE = PatchEmbedding(imageSize=256, patchSize=12, inputChannels=3, embedDim=8)
 # out = PE(test)
-# print(out)
+# print(out.shape)
