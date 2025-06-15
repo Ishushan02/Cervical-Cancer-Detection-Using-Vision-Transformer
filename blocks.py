@@ -37,7 +37,11 @@ class TransformerEncoder(nn.Module):
         self.mlp = FeedForward(nEmbed, 2 * nEmbed, nEmbed, drop_rate)
 
     def forward(self, x):
-        x = x + self.attention(self.norm1(x), self.norm1(x), self.norm1(x))[0]
+        norm_x = self.norm1(x)
+        norm_x = norm_x
+        
+        attn_output, _ = self.attention(norm_x, norm_x, norm_x)
+        x = x + attn_output
         x = x + self.mlp(self.norm1(x))
         return x
     
