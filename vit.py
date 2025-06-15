@@ -29,7 +29,6 @@ class VisionTransformer(nn.Module):
 
         cls_token = x[:, 0]
         # print(cls_token.shape)
-
         out = self.out(cls_token)
         # print(out.shape)
 
