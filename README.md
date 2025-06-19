@@ -64,4 +64,10 @@ The core components of our ViT model include:
 * **Transformer Encoder Blocks**
 * **Classification Head**
 
+## Final Metrics
+-   Training Loss: 0.1778036311232284
+-   Train Accuracy: 0.9388700216116085
+-   Validation Loss: 0.4634379268838809
+-   Validation Accuracy: 0.9209876543209876
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.txt)
