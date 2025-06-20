@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-
+# I did add contguous as it was creating issue in training, later came to know that the issue was due to mps (Apple GPU)
 
 class PatchEmbedding(nn.Module):
     def __init__(self, imageSize, patchSize, inputChannels, embedDim):
@@ -21,9 +21,6 @@ class PatchEmbedding(nn.Module):
     
     def forward(self, x):
         batch, channels, height, width = x.shape
-        # x = self.projection(x).contiguous()  # <--- ✅ make sure this is contiguous
-        # x = x.flatten(2).transpose(1, 2).contiguous()  # <--- ✅ ensure this too is contiguous
-
         x = self.projection(x)
         # print(x.shape)
         # x = x.contiguous()
